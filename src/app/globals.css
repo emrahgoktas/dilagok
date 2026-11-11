@@ -44,21 +44,217 @@ a {
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
-.hero-film-img {
-  animation: hero-ken 32s ease-in-out alternate infinite;
+.hero-mosaic {
+  --hero-gap: 0.45rem;
+  --hero-sq: calc((100dvh - 5.6rem - var(--hero-gap)) / 2);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(42vw, 1fr) var(--hero-sq);
+  gap: var(--hero-gap);
+  height: 100dvh;
+  padding: 5.15rem 0.7rem 0.7rem;
+}
+
+.hero-wide {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 767px) {
+  .hero-mosaic {
+    height: auto;
+    min-height: 100dvh;
+    grid-template-rows: auto auto;
+  }
+
+  .hero-wide {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .hero-sq {
+    aspect-ratio: 1;
+    min-height: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-mosaic {
+    grid-template-columns: minmax(0, 1fr) var(--hero-sq);
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .hero-wide {
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
+}
+
+.hero-pane {
+  isolation: isolate;
+}
+
+.hero-slide {
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity 0.9s ease,
+    transform 1.4s ease;
+}
+
+.hero-slide.is-on {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.hero-slide.is-on img {
+  animation: hero-ken 6.5s ease-out both;
+}
+
+.hero-vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, transparent 45%, rgba(10, 10, 10, 0.45) 100%);
+}
+
+.hero-caption {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  z-index: 3;
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #f4efe6;
+  animation: hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  height: 2px;
+  transform-origin: left center;
+  background: #c4a574;
+  animation-name: hero-bar;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+[dir="rtl"] .hero-progress {
+  transform-origin: right center;
+}
+
+.hero-copy {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 1.35rem;
+  z-index: 5;
+  display: flex;
+  max-width: min(36rem, 70%);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+  pointer-events: none;
+}
+
+.hero-copy a {
+  pointer-events: auto;
+}
+
+.hero-kicker {
+  font-size: 0.62rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #c4a574;
+  animation: hero-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-headline {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.85rem, 4.6vw, 4.4rem);
+  line-height: 1.05;
+  color: #f4efe6;
+  text-shadow: 0 12px 40px rgba(10, 10, 10, 0.45);
+  animation: hero-title 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 230, 0.88);
+  animation: hero-in 0.9s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-cta a:hover {
+  color: #c4a574;
 }
 
 @keyframes hero-ken {
   from {
-    transform: scale(1.04);
+    transform: scale(1.12);
   }
   to {
-    transform: scale(1.1) translate3d(-1.4%, -1.2%, 0);
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-title {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    clip-path: inset(0 0 80% 0);
+    letter-spacing: 0.08em;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0);
+    letter-spacing: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-film-img {
-    animation: none;
+  .hero-slide,
+  .hero-slide.is-on img,
+  .hero-progress,
+  .hero-headline,
+  .hero-kicker,
+  .hero-cta,
+  .hero-caption {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
   }
 }
