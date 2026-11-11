@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { customSurcharge, getProduct } from "@/lib/products";
+import { customSurcharge } from "@/lib/products";
+import { getProduct } from "@/lib/catalog-store";
 import { site } from "@/lib/site";
 
 export async function POST(req: Request) {

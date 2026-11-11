@@ -1,5 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { products } from "@/lib/products";
+import { allProducts } from "@/lib/catalog-store";
 import { Link } from "@/i18n/routing";
 import { ProductMedia } from "@/components/product/ProductMedia";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -30,6 +30,7 @@ export default async function CollectionPage({
   setRequestLocale(locale);
   const loc = locale as Locale;
   const t = await getTranslations("collection");
+  const products = allProducts();
 
   return (
     <main className="mx-auto max-w-6xl px-5 pt-28 pb-24">

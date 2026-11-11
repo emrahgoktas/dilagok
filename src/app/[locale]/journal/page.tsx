@@ -1,5 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
-import { journal } from "@/lib/journal";
+import { allArticles } from "@/lib/catalog-store";
 import { Link } from "@/i18n/routing";
 import { hreflangAlternates } from "@/lib/seo";
 import type { Locale } from "@/lib/site";
@@ -18,6 +18,7 @@ export default async function JournalPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const loc = locale as Locale;
+  const journal = allArticles();
 
   return (
     <main className="mx-auto max-w-3xl px-5 pt-28 pb-24">

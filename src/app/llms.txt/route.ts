@@ -1,7 +1,13 @@
 import { site } from "@/lib/site";
-import { products } from "@/lib/products";
+import { allProducts } from "@/lib/catalog-store";
 
 export function GET() {
+  const products = allProducts();
+  const geo = products
+    .map((p) => p.geoAnswer?.en)
+    .filter(Boolean)
+    .map((t) => `- ${t}`)
+    .join("\n");
   const body = `# DILAGOK
 
 > Handmade cord couture. Knotted in Turkey, worn in Dubai, Paris, Berlin.
@@ -24,6 +30,9 @@ English (default), Arabic (RTL), French, German.
 - [Atelier](${site.url}/en/atelier)
 - [FAQ](${site.url}/en/faq)
 ${products.map((p) => `- [${p.name.en}](${site.url}/en/product/${p.slug})`).join("\n")}
+
+## Direct answers
+${geo || "Handmade cord bags, knotted to order in Turkey by Dila Gök."}
 
 ## Contact
 ${site.email}

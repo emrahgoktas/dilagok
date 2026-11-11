@@ -1,14 +1,17 @@
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { cordPalette, customSurcharge, getProduct, products } from "@/lib/products";
+import { cordPalette, customSurcharge } from "@/lib/products";
+import { allProducts, getProduct } from "@/lib/catalog-store";
 import { CustomForm } from "@/components/product/CustomForm";
 import { ProductMedia } from "@/components/product/ProductMedia";
 import { hreflangAlternates } from "@/lib/seo";
 import { site, type Locale } from "@/lib/site";
 import type { Metadata } from "next";
 
+export const dynamicParams = true;
+
 export function generateStaticParams() {
-  return products.flatMap((p) =>
+  return allProducts().flatMap((p) =>
     site.locales.map((locale) => ({ locale, slug: p.slug })),
   );
 }
@@ -49,7 +52,7 @@ export default async function CustomPage({
         <p className="mt-4 text-bone/70">{t("lede")}</p>
         <p className="mt-2 font-display text-3xl">{product.name[loc]}</p>
         <CustomForm
-          slug={product.slug}
+          product={product}
           colors={product.colors.map((c) => ({
             id: c,
             hex: cordPalette[c].hex,

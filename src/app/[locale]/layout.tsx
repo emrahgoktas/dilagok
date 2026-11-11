@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import { localeDir, site, type Locale } from "@/lib/site";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { HideOnAdmin } from "@/components/layout/HideOnAdmin";
 import { JsonLd } from "@/components/seo/JsonLd";
 import "../globals.css";
 
@@ -93,9 +94,13 @@ export default async function LocaleLayout({
               brand: { "@type": "Brand", name: site.name },
             }}
           />
-          <SiteHeader />
+          <HideOnAdmin>
+            <SiteHeader />
+          </HideOnAdmin>
           {children}
-          <SiteFooter />
+          <HideOnAdmin>
+            <SiteFooter />
+          </HideOnAdmin>
         </NextIntlClientProvider>
       </body>
     </html>

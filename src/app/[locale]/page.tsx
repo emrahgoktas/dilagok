@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SignatureHero } from "@/components/scene/SignatureHero";
-import { products } from "@/lib/products";
+import { allProducts } from "@/lib/catalog-store";
 import { Link } from "@/i18n/routing";
 import { ProductMedia } from "@/components/product/ProductMedia";
 import { hreflangAlternates } from "@/lib/seo";
@@ -30,6 +30,7 @@ export default async function HomePage({
   setRequestLocale(locale);
   const loc = locale as Locale;
   const t = await getTranslations("collection");
+  const products = allProducts();
 
   return (
     <main>

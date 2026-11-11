@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getProduct } from "@/lib/products";
+import { getProduct } from "@/lib/catalog-store";
 import { site } from "@/lib/site";
 
 const PLATFORMS = [

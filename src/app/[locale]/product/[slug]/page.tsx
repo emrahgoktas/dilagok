@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { getProduct, products, cordPalette } from "@/lib/products";
+import { cordPalette } from "@/lib/products";
+import { allProducts, getProduct } from "@/lib/catalog-store";
 import { ProductMedia } from "@/components/product/ProductMedia";
 import { ShareBar } from "@/components/product/ShareBar";
 import { Link } from "@/i18n/routing";
@@ -10,8 +11,10 @@ import { hreflangAlternates, localeUrl } from "@/lib/seo";
 import { site, type Locale } from "@/lib/site";
 import type { Metadata } from "next";
 
+export const dynamicParams = true;
+
 export function generateStaticParams() {
-  return products.flatMap((p) =>
+  return allProducts().flatMap((p) =>
     site.locales.map((locale) => ({ locale, slug: p.slug })),
   );
 }
@@ -26,8 +29,8 @@ export async function generateMetadata({
   if (!product) return {};
   const loc = locale as Locale;
   return {
-    title: `${product.name[loc]} — handmade macrame bag`,
-    description: product.summary[loc],
+    title: product.seoTitle?.[loc] || `${product.name[loc]} — handmade macrame bag`,
+    description: product.seoDescription?.[loc] || product.summary[loc],
     keywords: product.seoKeywords[loc],
     alternates: hreflangAlternates(`/product/${slug}`),
     openGraph: {
@@ -66,9 +69,10 @@ export default async function ProductPage({
           name: product.name[loc],
           sku: product.sku,
           brand: { "@type": "Brand", name: "DILAGOK" },
-          description: product.description[loc],
-          material: "Cotton cord / macrame",
+          description: product.geoAnswer?.[loc] || product.description[loc],
+          material: product.material ?? "Cotton cord / macrame",
           countryOfOrigin: "TR",
+          image: product.image,
           offers: {
             "@type": "Offer",
             price: product.priceEur,
@@ -93,6 +97,21 @@ export default async function ProductPage({
           },
         }}
       />
+      {product.faq?.some((f) => f.q[loc] && f.a[loc]) ? (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: product.faq
+              .filter((f) => f.q[loc] && f.a[loc])
+              .map((f) => ({
+                "@type": "Question",
+                name: f.q[loc],
+                acceptedAnswer: { "@type": "Answer", text: f.a[loc] },
+              })),
+          }}
+        />
+      ) : null}
       <ProductMedia product={product} priority className="aspect-[4/5]" />
       <div>
         <p className="text-[0.65rem] tracking-[0.3em] uppercase text-gold">{product.sku}</p>

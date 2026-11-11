@@ -1,13 +1,15 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { getArticle, journal } from "@/lib/journal";
+import { allArticles, getArticle } from "@/lib/catalog-store";
 import { site, type Locale } from "@/lib/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { hreflangAlternates } from "@/lib/seo";
 import type { Metadata } from "next";
 
+export const dynamicParams = true;
+
 export function generateStaticParams() {
-  return journal.flatMap((a) =>
+  return allArticles().flatMap((a) =>
     site.locales.map((locale) => ({ locale, slug: a.slug })),
   );
 }
@@ -22,8 +24,8 @@ export async function generateMetadata({
   if (!article) return {};
   const loc = locale as Locale;
   return {
-    title: article.title[loc],
-    description: article.excerpt[loc],
+    title: article.seoTitle?.[loc] || article.title[loc],
+    description: article.seoDescription?.[loc] || article.excerpt[loc],
     alternates: hreflangAlternates(`/journal/${slug}`),
   };
 }

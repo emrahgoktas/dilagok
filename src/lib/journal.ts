@@ -1,4 +1,19 @@
-export const journal = [
+export type Article = {
+  slug: string;
+  title: Record<"en" | "ar" | "fr" | "de", string>;
+  excerpt: Record<"en" | "ar" | "fr" | "de", string>;
+  body: Record<"en" | "ar" | "fr" | "de", string>;
+  cover?: string;
+  alt?: string;
+  tags?: string[];
+  seoTitle?: Record<"en" | "ar" | "fr" | "de", string>;
+  seoDescription?: Record<"en" | "ar" | "fr" | "de", string>;
+  geoAnswer?: Record<"en" | "ar" | "fr" | "de", string>;
+  date?: string;
+  published?: boolean;
+};
+
+export const journal: Article[] = [
   {
     slug: "how-a-knotted-cord-bag-is-made",
     title: {

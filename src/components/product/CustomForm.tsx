@@ -2,26 +2,25 @@
 
 import { useState } from "react";
 import { useRouter } from "@/i18n/routing";
-import type { CordColor, Size, Strap } from "@/lib/products";
+import type { CordColor, Product, Size, Strap } from "@/lib/products";
 import { BagPortrait } from "./BagPortrait";
-import { getProduct } from "@/lib/products";
 
 export function CustomForm({
-  slug,
+  product,
   colors,
   sizes,
   straps,
   surcharge,
   labels,
 }: {
-  slug: string;
+  product: Product;
   colors: { id: CordColor; hex: string; label: string }[];
   sizes: Size[];
   straps: Strap[];
   surcharge: number;
   labels: { color: string; size: string; strap: string; note: string; submit: string };
 }) {
-  const product = getProduct(slug)!;
+  const slug = product.slug;
   const [color, setColor] = useState<CordColor>(colors[0].id);
   const [size, setSize] = useState(sizes[0]);
   const [strap, setStrap] = useState(straps[0]);

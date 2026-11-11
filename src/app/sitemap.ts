@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
-import { products } from "@/lib/products";
-import { journal } from "@/lib/journal";
+import { allArticles, allProducts } from "@/lib/catalog-store";
 import { markets } from "@/lib/markets";
 import { localeUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const products = allProducts();
+  const journal = allArticles();
   const paths = [
     "",
     "/collection",

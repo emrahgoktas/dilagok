@@ -1,5 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
-import { products } from "@/lib/products";
+import { allProducts } from "@/lib/catalog-store";
 import { ProductMedia } from "@/components/product/ProductMedia";
 import { Link } from "@/i18n/routing";
 import { hreflangAlternates } from "@/lib/seo";
@@ -17,6 +17,7 @@ export default async function LookbookPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const products = allProducts();
 
   return (
     <main className="columns-1 gap-4 px-4 pt-28 pb-24 sm:columns-2 md:columns-3">

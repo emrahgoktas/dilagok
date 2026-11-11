@@ -27,6 +27,24 @@ export type Product = {
   hero: boolean;
   image?: string;
   cutout?: string;
+  extraImages?: string[];
+  alt?: string;
+  gtin?: string;
+  mpn?: string;
+  material?: string;
+  googleCategory?: string;
+  availability?: "PreOrder" | "InStock" | "OutOfStock";
+  weightGrams?: number;
+  seoTitle?: Record<"en" | "ar" | "fr" | "de", string>;
+  seoDescription?: Record<"en" | "ar" | "fr" | "de", string>;
+  geoAnswer?: Record<"en" | "ar" | "fr" | "de", string>;
+  faq?: { q: Record<"en" | "ar" | "fr" | "de", string>; a: Record<"en" | "ar" | "fr" | "de", string> }[];
+  hashtags?: string[];
+  igCaption?: string;
+  pinTitle?: string;
+  pinDescription?: string;
+  tiktokCaption?: string;
+  published?: boolean;
 };
 
 export const cordPalette: Record<
