@@ -87,7 +87,7 @@ export default async function LocaleLayout({
               "@type": "Organization",
               name: site.name,
               url: site.url,
-              logo: `${site.url}/brand/logo-mark.svg`,
+              logo: `${site.url}/brand/logo-mark.png`,
               founder: site.founder,
               sameAs: site.sameAs,
               brand: { "@type": "Brand", name: site.name },
