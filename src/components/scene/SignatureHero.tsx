@@ -107,7 +107,7 @@ export function SignatureHero({ autoplay = false }: { autoplay?: boolean }) {
               className="absolute left-1/2 top-[8%] -translate-x-1/2 text-bone/80"
               style={{ opacity: stamp }}
             >
-              <LogoMark className="h-8 w-6" />
+              <LogoMark className="h-8 w-auto" />
             </div>
           </div>
         </div>

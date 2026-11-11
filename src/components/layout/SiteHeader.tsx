@@ -23,7 +23,7 @@ export function SiteHeader() {
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 mix-blend-difference">
       <div className="pointer-events-auto mx-auto flex max-w-6xl items-center justify-between px-5 py-5 text-bone">
         <Link href="/" className="flex items-center gap-3 text-bone">
-          <LogoMark className="h-9 w-7 transition-transform duration-700 hover:scale-[1.03]" />
+          <LogoMark className="h-9 w-auto transition-transform duration-700 hover:scale-[1.03]" />
           <Wordmark />
         </Link>
         <nav className="hidden items-center gap-6 text-[0.65rem] tracking-[0.22em] uppercase md:flex">
