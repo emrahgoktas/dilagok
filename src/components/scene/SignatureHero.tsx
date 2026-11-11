@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { heroProduct } from "@/lib/products";
-import { LogoMark } from "@/components/brand/LogoMark";
 
 const CordCanvas = dynamic(() => import("./CordCanvas"), { ssr: false });
 
@@ -17,7 +16,7 @@ export function SignatureHero({ autoplay = false }: { autoplay?: boolean }) {
   const [reduced, setReduced] = useState(false);
   const t = useTranslations("hero");
   const product = heroProduct();
-  const photoSrc = product.image ?? "/products/dune-hero.jpg";
+  const photoSrc = product.cutout ?? product.image ?? "/products/dune-hero.png";
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -60,10 +59,10 @@ export function SignatureHero({ autoplay = false }: { autoplay?: boolean }) {
     return () => cancelAnimationFrame(raf);
   }, [autoplay, reduced]);
 
-  const photo = Math.max(0, (progress - 0.72) / 0.2);
-  const stamp = Math.max(0, (progress - 0.9) / 0.08);
-  const copy = Math.max(0, (progress - 0.92) / 0.08);
-  const cords = reduced ? 0 : Math.max(0, 1 - photo * 1.05);
+  const photo = Math.max(0, (progress - 0.56) / 0.3);
+  const copy = Math.max(0, (progress - 0.86) / 0.1);
+  const cords = reduced ? 0 : Math.max(0, 1 - Math.pow(Math.min(1, photo), 1.45));
+  const bag = Math.min(1, photo);
 
   return (
     <section ref={section} className="relative h-[320vh] bg-ink">
@@ -79,36 +78,29 @@ export function SignatureHero({ autoplay = false }: { autoplay?: boolean }) {
             }}
             onMouseLeave={() => setMouse({ x: 0, y: 0 })}
           >
-            <CordCanvas progress={Math.min(progress, 0.88)} mouse={mouse} />
+            <CordCanvas progress={Math.min(progress, 0.9)} mouse={mouse} />
           </div>
         ) : null}
 
         <div
           className="pointer-events-none absolute inset-0 flex items-center justify-center"
           style={{
-            opacity: reduced ? 1 : photo,
-            transform: `translateY(${(1 - Math.min(1, photo)) * 18}px) scale(${0.94 + Math.min(1, photo) * 0.06})`,
+            opacity: reduced ? 1 : bag,
+            transform: `translate(-6%, ${(1 - bag) * 22}px) scale(${0.9 + bag * 0.1})`,
           }}
         >
-          <div className="relative aspect-[3/4] w-[min(78vw,440px)] overflow-hidden">
+          <div className="relative h-[min(82dvh,720px)] w-[min(94vw,640px)]">
             <Image
               src={photoSrc}
               alt={product.name.en}
               fill
               priority
-              sizes="440px"
-              className="object-cover"
+              sizes="640px"
+              className="object-contain object-center"
+              style={{
+                filter: `drop-shadow(0 28px 48px rgba(0,0,0,${0.45 * bag}))`,
+              }}
             />
-            <div
-              className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent"
-              style={{ opacity: stamp }}
-            />
-            <div
-              className="absolute left-1/2 top-[8%] -translate-x-1/2 text-bone/80"
-              style={{ opacity: stamp }}
-            >
-              <LogoMark className="h-8 w-auto" />
-            </div>
           </div>
         </div>
 

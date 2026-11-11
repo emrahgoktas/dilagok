@@ -14,15 +14,16 @@ export function ProductMedia({
   className?: string;
   priority?: boolean;
 }) {
-  if (product.image && !color) {
+  const src = !color ? product.cutout ?? product.image : undefined;
+  if (src) {
     return (
       <div className={`relative overflow-hidden bg-ink ${className}`}>
         <Image
-          src={product.image}
+          src={src}
           alt={product.name.en}
           fill
           sizes="(min-width: 768px) 42vw, 90vw"
-          className="object-cover"
+          className={product.cutout && !color ? "object-contain" : "object-cover"}
           priority={priority}
         />
       </div>

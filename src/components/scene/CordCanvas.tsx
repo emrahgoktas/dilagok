@@ -75,8 +75,8 @@ export default function CordCanvas({
       camera={{ position: [0, 0.15, 3.4], fov: 35 }}
       dpr={[1, 1.7]}
       gl={{ antialias: true, alpha: true }}
+      style={{ background: "transparent" }}
     >
-      <color attach="background" args={["#0A0A0A"]} />
       <ambientLight intensity={0.35} />
       <spotLight position={[2.4, 3.2, 2]} intensity={2.2} angle={0.45} color="#F4EFE6" />
       <pointLight position={[-2, 1, 2]} intensity={0.6} color="#C4A574" />
