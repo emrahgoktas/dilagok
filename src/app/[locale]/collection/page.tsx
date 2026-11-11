@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { products } from "@/lib/products";
 import { Link } from "@/i18n/routing";
-import { BagPortrait } from "@/components/product/BagPortrait";
+import { ProductMedia } from "@/components/product/ProductMedia";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { hreflangAlternates, localeUrl } from "@/lib/seo";
 import type { Locale } from "@/lib/site";
@@ -51,7 +51,7 @@ export default async function CollectionPage({
       <div className="editorial-grid mt-14">
         {products.map((p) => (
           <Link key={p.slug} href={`/product/${p.slug}`} className="block">
-            <BagPortrait product={p} className="aspect-[4/5]" />
+            <ProductMedia product={p} className="aspect-[4/5]" />
             <p className="mt-3 font-display text-2xl">{p.name[loc]}</p>
             <p className="text-sm text-bone/60">{p.summary[loc]}</p>
             <p className="mt-2 text-xs tracking-widest uppercase text-gold">

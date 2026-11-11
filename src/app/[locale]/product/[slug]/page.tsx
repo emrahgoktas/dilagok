@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getProduct, products, cordPalette } from "@/lib/products";
-import { BagPortrait } from "@/components/product/BagPortrait";
+import { ProductMedia } from "@/components/product/ProductMedia";
 import { ShareBar } from "@/components/product/ShareBar";
 import { Link } from "@/i18n/routing";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -34,6 +34,7 @@ export async function generateMetadata({
       title: product.name[loc],
       description: product.summary[loc],
       type: "website",
+      images: product.image ? [{ url: product.image }] : undefined,
     },
     other: {
       "og:type": "product",
@@ -92,7 +93,7 @@ export default async function ProductPage({
           },
         }}
       />
-      <BagPortrait product={product} stamped className="aspect-[4/5]" />
+      <ProductMedia product={product} priority className="aspect-[4/5]" />
       <div>
         <p className="text-[0.65rem] tracking-[0.3em] uppercase text-gold">{product.sku}</p>
         <h1 className="mt-3 font-display text-5xl">{product.name[loc]}</h1>

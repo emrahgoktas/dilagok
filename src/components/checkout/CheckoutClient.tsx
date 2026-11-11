@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { markets, type MarketId } from "@/lib/markets";
 import { customSurcharge, getProduct, type CordColor, type Size, type Strap } from "@/lib/products";
-import { BagPortrait } from "@/components/product/BagPortrait";
+import { ProductMedia } from "@/components/product/ProductMedia";
 import type { Locale } from "@/lib/site";
 
 export function CheckoutClient({
@@ -35,7 +35,7 @@ export function CheckoutClient({
 
   return (
     <main className="mx-auto grid max-w-4xl gap-10 px-5 pt-28 pb-24 md:grid-cols-2">
-      <BagPortrait product={product} color={color} className="aspect-[4/5]" />
+      <ProductMedia product={product} color={color} className="aspect-[4/5]" />
       <form
         onSubmit={async (e) => {
           e.preventDefault();

@@ -2,7 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SignatureHero } from "@/components/scene/SignatureHero";
 import { products } from "@/lib/products";
 import { Link } from "@/i18n/routing";
-import { BagPortrait } from "@/components/product/BagPortrait";
+import { ProductMedia } from "@/components/product/ProductMedia";
 import { hreflangAlternates } from "@/lib/seo";
 import type { Locale } from "@/lib/site";
 import type { Metadata } from "next";
@@ -44,7 +44,7 @@ export default async function HomePage({
         <div className="editorial-grid mt-14">
           {products.map((p) => (
             <Link key={p.slug} href={`/product/${p.slug}`} className="group block">
-              <BagPortrait product={p} className="aspect-[4/5]" />
+              <ProductMedia product={p} className="aspect-[4/5]" />
               <div className="mt-4 flex items-baseline justify-between">
                 <span className="font-display text-2xl">{p.name[loc]}</span>
                 <span className="text-xs tracking-widest uppercase text-bone/50">

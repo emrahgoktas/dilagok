@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { cordPalette, customSurcharge, getProduct, products } from "@/lib/products";
 import { CustomForm } from "@/components/product/CustomForm";
-import { BagPortrait } from "@/components/product/BagPortrait";
+import { ProductMedia } from "@/components/product/ProductMedia";
 import { hreflangAlternates } from "@/lib/seo";
 import { site, type Locale } from "@/lib/site";
 import type { Metadata } from "next";
@@ -43,7 +43,7 @@ export default async function CustomPage({
 
   return (
     <main className="mx-auto grid max-w-6xl gap-12 px-5 pt-28 pb-24 md:grid-cols-2">
-      <BagPortrait product={product} className="aspect-[4/5]" />
+      <ProductMedia product={product} className="aspect-[4/5]" />
       <div>
         <h1 className="font-display text-5xl">{t("title")}</h1>
         <p className="mt-4 text-bone/70">{t("lede")}</p>

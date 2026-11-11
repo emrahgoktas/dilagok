@@ -1,6 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { products } from "@/lib/products";
-import { BagPortrait } from "@/components/product/BagPortrait";
+import { ProductMedia } from "@/components/product/ProductMedia";
 import { Link } from "@/i18n/routing";
 import { hreflangAlternates } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -27,7 +27,7 @@ export default async function LookbookPage({
           className="mb-4 block break-inside-avoid"
           style={{ marginTop: i % 2 ? 24 : 0 }}
         >
-          <BagPortrait
+          <ProductMedia
             product={p}
             className={i % 3 === 0 ? "aspect-[3/4]" : "aspect-[4/5]"}
           />

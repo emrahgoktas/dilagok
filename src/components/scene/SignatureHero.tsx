@@ -1,10 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { BagPortrait } from "@/components/product/BagPortrait";
 import { heroProduct } from "@/lib/products";
 import { LogoMark } from "@/components/brand/LogoMark";
 
@@ -17,6 +17,7 @@ export function SignatureHero({ autoplay = false }: { autoplay?: boolean }) {
   const [reduced, setReduced] = useState(false);
   const t = useTranslations("hero");
   const product = heroProduct();
+  const photoSrc = product.image ?? "/products/dune-hero.jpg";
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -59,9 +60,10 @@ export function SignatureHero({ autoplay = false }: { autoplay?: boolean }) {
     return () => cancelAnimationFrame(raf);
   }, [autoplay, reduced]);
 
-  const photo = Math.max(0, (progress - 0.78) / 0.16);
+  const photo = Math.max(0, (progress - 0.72) / 0.2);
   const stamp = Math.max(0, (progress - 0.9) / 0.08);
   const copy = Math.max(0, (progress - 0.92) / 0.08);
+  const cords = reduced ? 0 : Math.max(0, 1 - photo * 1.05);
 
   return (
     <section ref={section} className="relative h-[320vh] bg-ink">
@@ -69,6 +71,7 @@ export function SignatureHero({ autoplay = false }: { autoplay?: boolean }) {
         {!reduced ? (
           <div
             className="absolute inset-0"
+            style={{ opacity: cords }}
             onMouseMove={(e) => {
               const x = (e.clientX / window.innerWidth) * 2 - 1;
               const y = (e.clientY / window.innerHeight) * 2 - 1;
@@ -76,26 +79,32 @@ export function SignatureHero({ autoplay = false }: { autoplay?: boolean }) {
             }}
             onMouseLeave={() => setMouse({ x: 0, y: 0 })}
           >
-            <CordCanvas progress={Math.min(progress, 0.92)} mouse={mouse} />
+            <CordCanvas progress={Math.min(progress, 0.88)} mouse={mouse} />
           </div>
         ) : null}
 
         <div
           className="pointer-events-none absolute inset-0 flex items-center justify-center"
-          style={{ opacity: reduced ? 1 : photo }}
+          style={{
+            opacity: reduced ? 1 : photo,
+            transform: `translateY(${(1 - Math.min(1, photo)) * 18}px) scale(${0.94 + Math.min(1, photo) * 0.06})`,
+          }}
         >
-          <div className="relative w-[min(72vw,420px)]">
-            <BagPortrait
-              product={product}
-              stamped={stamp > 0.4}
-              className="aspect-[4/5] w-full"
+          <div className="relative aspect-[3/4] w-[min(78vw,440px)] overflow-hidden">
+            <Image
+              src={photoSrc}
+              alt={product.name.en}
+              fill
+              priority
+              sizes="440px"
+              className="object-cover"
             />
             <div
-              className="pointer-events-none absolute inset-x-[18%] bottom-[8%] mx-auto h-24 bg-gradient-to-t from-black/50 to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent"
               style={{ opacity: stamp }}
             />
             <div
-              className="absolute left-1/2 top-[46%] -translate-x-1/2 text-bone/70"
+              className="absolute left-1/2 top-[8%] -translate-x-1/2 text-bone/80"
               style={{ opacity: stamp }}
             >
               <LogoMark className="h-8 w-6" />
@@ -112,7 +121,10 @@ export function SignatureHero({ autoplay = false }: { autoplay?: boolean }) {
 
         <div
           className="absolute bottom-10 left-0 right-0 flex justify-center gap-8 text-[0.65rem] tracking-[0.28em] uppercase text-bone/80"
-          style={{ opacity: reduced ? 1 : copy, pointerEvents: copy > 0.2 || reduced ? "auto" : "none" }}
+          style={{
+            opacity: reduced ? 1 : copy,
+            pointerEvents: copy > 0.2 || reduced ? "auto" : "none",
+          }}
         >
           <Link href="/collection">{t("shop")}</Link>
           <Link href="/custom/dune">{t("commission")}</Link>

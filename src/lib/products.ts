@@ -25,6 +25,7 @@ export type Product = {
   leadWeeks: string;
   seoKeywords: Record<"en" | "ar" | "fr" | "de", string[]>;
   hero: boolean;
+  image?: string;
 };
 
 export const cordPalette: Record<
@@ -91,6 +92,7 @@ export const products: Product[] = [
     dimensions: { w: 32, h: 28, d: 12 },
     leadWeeks: "2–4",
     hero: true,
+    image: "/products/dune-hero.jpg",
     seoKeywords: {
       en: ["handmade macrame tote", "knotted cord bag", "resort macrame bag Dubai"],
       ar: ["شنطة مكرمية دبي", "حقيبة مكراميه", "شنطة يد يدوية الصنع"],
