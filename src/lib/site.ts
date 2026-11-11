@@ -2,7 +2,7 @@ export const site = {
   name: "DILAGOK",
   founder: "Dila Gök",
   origin: "Turkey",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dilagok.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.dilagok.com",
   tagline: "Handmade cord couture. Knotted in Turkey, worn in Dubai, Paris, Berlin.",
   instagram: "https://www.instagram.com/dila_gok_/",
   instagramHandle: "@dila_gok_",

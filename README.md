@@ -2,6 +2,8 @@
 
 Handmade cord couture. Next.js atelier storefront.
 
+Production: https://www.dilagok.com
+
 - Locales: `en` `ar` `fr` `de` (`/en`, `/ar`, …)
 - Signature hero: `/en?play=1` auto-scrolls the knotting scene for social capture
 - Stripe checkout when `STRIPE_SECRET_KEY` is set
