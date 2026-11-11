@@ -6,35 +6,30 @@ import { heroProduct } from "@/lib/products";
 export async function SignatureHero() {
   const t = await getTranslations("hero");
   const product = heroProduct();
-  const photoSrc = product.cutout ?? product.image ?? "/products/dune-hero.png";
+  const photoSrc = product.image ?? "/products/dune-hero.jpg";
 
   return (
-    <section className="hero-stage relative flex h-dvh flex-col overflow-hidden bg-ink">
-      <div className="hero-glow" aria-hidden />
-
-      <div className="hero-mark-slot pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
-        <span className="hero-dg text-bone" aria-hidden />
+    <section className="relative h-dvh overflow-hidden bg-ink">
+      <div className="hero-film absolute inset-0">
+        <Image
+          src={photoSrc}
+          alt={product.name.en}
+          fill
+          priority
+          sizes="100vw"
+          className="hero-film-img object-cover object-[58%_42%]"
+        />
       </div>
 
-      <div className="relative z-[1] flex min-h-0 flex-1 items-center justify-center px-4 pt-24 pb-36">
-        <div className="hero-still-enter relative h-[min(62dvh,560px)] w-[min(92vw,520px)]">
-          <div className="hero-still-breath absolute inset-0">
-            <Image
-              src={photoSrc}
-              alt={product.name.en}
-              fill
-              priority
-              sizes="(min-width: 768px) 520px, 92vw"
-              className="object-contain object-center"
-            />
-            <span className="hero-sheen" aria-hidden />
-          </div>
-        </div>
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-ink/50" />
 
-      <div className="hero-copy pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col items-center gap-6 px-5 pb-10 text-center">
-        <p className="hero-line font-display text-2xl text-bone md:text-4xl">{t("line")}</p>
-        <div className="hero-cta pointer-events-auto flex gap-8 text-[0.65rem] tracking-[0.28em] uppercase text-bone/80">
+      <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-start gap-4 px-6 pb-16 pt-32 md:gap-5 md:px-12 md:pb-14">
+        <p className="text-[0.65rem] tracking-[0.38em] uppercase text-gold">{t("kicker")}</p>
+        <h1 className="max-w-xl font-display text-4xl leading-[1.05] text-bone md:text-6xl lg:text-7xl">
+          {t("headline")}
+        </h1>
+        <p className="font-display text-lg text-bone/75 md:text-2xl">{t("line")}</p>
+        <div className="mt-2 flex flex-wrap gap-8 text-[0.65rem] tracking-[0.28em] uppercase text-bone/85">
           <Link href="/collection" className="hover:text-gold">
             {t("shop")}
           </Link>

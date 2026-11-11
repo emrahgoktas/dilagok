@@ -36,7 +36,7 @@ export default async function HomePage({
       <SignatureHero />
       <section className="mx-auto max-w-6xl px-5 py-24">
         <p className="text-[0.65rem] tracking-[0.35em] uppercase text-gold">Capsule</p>
-        <h1 className="mt-4 font-display text-4xl md:text-6xl">{t("title")}</h1>
+        <h2 className="mt-4 font-display text-4xl md:text-6xl">{t("title")}</h2>
         <p className="mt-4 max-w-xl text-bone/70">{t("lede")}</p>
         <div className="editorial-grid mt-14">
           {products.map((p) => (
