@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "title": "DILAGOK — Geknüpfte Kordel-Couture",
+    "description": "Handgeknüpfte Makramee-Taschen aus der Türkei, auf Bestellung. Getragen in Dubai, Paris, Berlin, London."
+  },
+  "nav": {
+    "collection": "Kollektion",
+    "atelier": "Atelier",
+    "lookbook": "Lookbook",
+    "shipping": "Versand",
+    "journal": "Journal",
+    "custom": "Maßanfertigung",
+    "faq": "Fragen"
+  },
+  "hero": {
+    "scroll": "Rollen zum Knüpfen",
+    "line": "Geknüpft in der Türkei.",
+    "shop": "Zur Kollektion",
+    "commission": "Stück beauftragen"
+  },
+  "collection": {
+    "title": "Handgemachte Makramee-Taschen",
+    "lede": "Eine Kapsel geknüpfter Kordel. Auf Bestellung, zwei bis vier Wochen.",
+    "madeToOrder": "Auf Bestellung · {weeks} Wochen"
+  },
+  "product": {
+    "buy": "Reservieren",
+    "customize": "Anpassen",
+    "lead": "Atelierzeit",
+    "dimensions": "Maße",
+    "cord": "Kordel",
+    "care": "Schatten, trockene Bürste, keine Maschine.",
+    "ships": "Versand in die VAE, nach Frankreich, Deutschland, UK. Russland auf Angebot.",
+    "pin": "Look pinnen",
+    "whatsapp": "Per WhatsApp teilen"
+  },
+  "custom": {
+    "title": "Maßanfertigung",
+    "lede": "Farbe, Größe, Riemen, private Notiz. Vierzig Euro über dem Modell.",
+    "color": "Kordelfarbe",
+    "size": "Größe",
+    "strap": "Riemen",
+    "note": "Notiz — ein Name, ein Datum",
+    "submit": "Diese Anfertigung reservieren"
+  },
+  "atelier": {
+    "title": "Das Atelier",
+    "factsTitle": "Fakten",
+    "founder": "Gründerin",
+    "origin": "Herkunft",
+    "craft": "Handwerk",
+    "craftValue": "Tress-Kordel / Makramee-Knoten aus Baumwolle",
+    "lead": "Lieferzeit",
+    "leadValue": "Auf Bestellung, 2–4 Wochen",
+    "markets": "Zuerst Versand nach",
+    "marketsValue": "VAE (Dubai), Frankreich, Deutschland, Vereinigtes Königreich, Russland auf Angebot",
+    "body": "Dila Gök knüpft jede Tasche in der Türkei. Die Kordel ist das Tuch. Dichte ist die Struktur. DILAGOK ist das Haus; Dila ist die Hand."
+  },
+  "shipping": {
+    "title": "Versand",
+    "intro": "Priorität: Dubai, Paris, Berlin, London. Russland privat angeboten."
+  },
+  "faq": {
+    "title": "Fragen",
+    "items": [
+      {
+        "q": "Wie lange dauert eine Tasche?",
+        "a": "Zwei bis vier Wochen Fertigung, dann Kurierzeit."
+      },
+      {
+        "q": "Kann ich die Kordelfarbe wählen?",
+        "a": "Ja. Maßanfertigung aus der Atelierpalette."
+      },
+      {
+        "q": "Wohin liefert ihr?",
+        "a": "VAE, Frankreich, Deutschland, Vereinigtes Königreich. Russland nach Angebot."
+      },
+      {
+        "q": "Pflege?",
+        "a": "Trockene Bürste, keine Maschine, nicht einweichen."
+      },
+      {
+        "q": "Rückgabe?",
+        "a": "Maßstücke folgen der Frist an der Kasse. Widerruf für EU-Kundinnen."
+      }
+    ]
+  },
+  "checkout": {
+    "title": "Reservieren",
+    "country": "Liefern nach",
+    "success": "Das Atelier hat die Bestellung. Eine Fertigungsnotiz folgt per E-Mail.",
+    "cancel": "Reservierung nicht abgeschlossen.",
+    "unavailable": "Onlinezahlung wird verbunden. atelier@dilagok.com zur Reservierung."
+  },
+  "admin": {
+    "title": "Veröffentlichen",
+    "caption": "Text",
+    "platforms": "Plattformen",
+    "send": "Überall veröffentlichen",
+    "needKey": "AYRSHARE_API_KEY setzen zum Senden."
+  },
+  "footer": {
+    "rights": "Atelier in der Türkei."
+  }
+}

@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #0a0a0a;
+  --color-bone: #f4efe6;
+  --color-gold: #c4a574;
+  --color-olive: #3f4a3c;
+  --color-sand: #d9c7a8;
+  --font-sans: var(--font-geist);
+  --font-display: var(--font-cormorant);
+  --font-arabic: var(--font-naskh);
+}
+
+html,
+body {
+  background: #0a0a0a;
+  color: #f4efe6;
+}
+
+body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+[dir="rtl"] body {
+  font-family: var(--font-arabic), var(--font-sans), serif;
+}
+
+::selection {
+  background: #c4a574;
+  color: #0a0a0a;
+}
+
+a {
+  text-underline-offset: 0.2em;
+}
+
+.editorial-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}

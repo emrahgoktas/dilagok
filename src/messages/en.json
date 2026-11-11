@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "title": "DILAGOK — Handmade cord couture",
+    "description": "Knotted cord bags made to order in Turkey. Worn in Dubai, Paris, Berlin and London."
+  },
+  "nav": {
+    "collection": "Collection",
+    "atelier": "Atelier",
+    "lookbook": "Lookbook",
+    "shipping": "Shipping",
+    "journal": "Journal",
+    "custom": "Commission",
+    "faq": "Questions"
+  },
+  "hero": {
+    "scroll": "Scroll to knot",
+    "line": "Knotted in Turkey.",
+    "shop": "Shop the collection",
+    "commission": "Commission a piece"
+  },
+  "collection": {
+    "title": "Handmade macrame bags",
+    "lede": "A capsule of knotted cord. Made to order, two to four weeks.",
+    "madeToOrder": "Made to order · {weeks} weeks"
+  },
+  "product": {
+    "buy": "Reserve",
+    "customize": "Customize",
+    "lead": "Atelier time",
+    "dimensions": "Dimensions",
+    "cord": "Cord",
+    "care": "Shade, dry brush, no machine.",
+    "ships": "Ships to UAE, France, Germany, UK. Russia by quote.",
+    "pin": "Pin this look",
+    "whatsapp": "Share on WhatsApp"
+  },
+  "custom": {
+    "title": "Commission a piece",
+    "lede": "Colour, size, strap, a private note. Forty euros above the model.",
+    "color": "Cord colour",
+    "size": "Size",
+    "strap": "Strap",
+    "note": "Note — a name, a date",
+    "submit": "Reserve this commission"
+  },
+  "atelier": {
+    "title": "The atelier",
+    "factsTitle": "Facts",
+    "founder": "Founder",
+    "origin": "Origin",
+    "craft": "Craft",
+    "craftValue": "Tress ip / macrame knots in cotton cord",
+    "lead": "Lead time",
+    "leadValue": "Made to order, 2–4 weeks",
+    "markets": "Ships first to",
+    "marketsValue": "UAE (Dubai), France, Germany, United Kingdom, Russia by quote",
+    "body": "Dila Gök knots each bag in Turkey. The cord is the cloth. Density is the structure. DILAGOK is the house; Dila is the hand."
+  },
+  "shipping": {
+    "title": "Shipping",
+    "intro": "Priority ateliers routes: Dubai, Paris, Berlin, London. Russia quoted privately."
+  },
+  "faq": {
+    "title": "Questions",
+    "items": [
+      {
+        "q": "How long does a bag take?",
+        "a": "Two to four weeks of making, then courier time to your country."
+      },
+      {
+        "q": "Can I choose the cord colour?",
+        "a": "Yes. Commission a piece and pick from the atelier palette."
+      },
+      {
+        "q": "Where do you ship?",
+        "a": "United Arab Emirates, France, Germany, the United Kingdom. Russia after a private quote."
+      },
+      {
+        "q": "How do I care for cord?",
+        "a": "Dry brush, no machine, no soaking. See the journal note on care."
+      },
+      {
+        "q": "Returns?",
+        "a": "Made-to-order pieces follow the window shown at checkout. EU customers receive Widerruf terms."
+      }
+    ]
+  },
+  "checkout": {
+    "title": "Reserve",
+    "country": "Deliver to",
+    "success": "The atelier has the order. You will receive a making note by email.",
+    "cancel": "Reservation was not completed.",
+    "unavailable": "Online payment is being connected. Email atelier@dilagok.com to reserve."
+  },
+  "admin": {
+    "title": "Publish",
+    "caption": "Caption",
+    "platforms": "Platforms",
+    "send": "Publish everywhere",
+    "needKey": "Set AYRSHARE_API_KEY to send."
+  },
+  "footer": {
+    "rights": "Atelier in Turkey."
+  }
+}

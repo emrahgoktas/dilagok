@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "title": "DILAGOK — Couture de corde nouée",
+    "description": "Sacs macramé faits main en Turquie, sur commande. Portés à Dubaï, Paris, Berlin, Londres."
+  },
+  "nav": {
+    "collection": "Collection",
+    "atelier": "Atelier",
+    "lookbook": "Lookbook",
+    "shipping": "Livraison",
+    "journal": "Journal",
+    "custom": "Sur commande",
+    "faq": "Questions"
+  },
+  "hero": {
+    "scroll": "Défiler pour nouer",
+    "line": "Noué en Turquie.",
+    "shop": "Voir la collection",
+    "commission": "Commander une pièce"
+  },
+  "collection": {
+    "title": "Sacs macramé faits main",
+    "lede": "Une capsule de corde nouée. Sur commande, deux à quatre semaines.",
+    "madeToOrder": "Sur commande · {weeks} semaines"
+  },
+  "product": {
+    "buy": "Réserver",
+    "customize": "Personnaliser",
+    "lead": "Temps d’atelier",
+    "dimensions": "Dimensions",
+    "cord": "Corde",
+    "care": "Ombre, brosse sèche, pas de machine.",
+    "ships": "Livraison EAU, France, Allemagne, Royaume-Uni. Russie sur devis.",
+    "pin": "Épingler ce look",
+    "whatsapp": "Partager sur WhatsApp"
+  },
+  "custom": {
+    "title": "Une pièce sur commande",
+    "lede": "Couleur, taille, anse, note privée. Quarante euros au-dessus du modèle.",
+    "color": "Couleur de corde",
+    "size": "Taille",
+    "strap": "Anse",
+    "note": "Note — un nom, une date",
+    "submit": "Réserver cette commande"
+  },
+  "atelier": {
+    "title": "L’atelier",
+    "factsTitle": "Faits",
+    "founder": "Fondatrice",
+    "origin": "Origine",
+    "craft": "Savoir-faire",
+    "craftValue": "Corde tressée / nœuds macramé en coton",
+    "lead": "Délai",
+    "leadValue": "Sur commande, 2–4 semaines",
+    "markets": "Livraison prioritaire",
+    "marketsValue": "EAU (Dubaï), France, Allemagne, Royaume-Uni, Russie sur devis",
+    "body": "Dila Gök noue chaque sac en Turquie. La corde est le tissu. La densité est la structure. DILAGOK est la maison ; Dila est la main."
+  },
+  "shipping": {
+    "title": "Livraison",
+    "intro": "Routes prioritaires : Dubaï, Paris, Berlin, Londres. Russie sur devis."
+  },
+  "faq": {
+    "title": "Questions",
+    "items": [
+      {
+        "q": "Combien de temps pour un sac ?",
+        "a": "Deux à quatre semaines de confection, puis le coursier."
+      },
+      {
+        "q": "Puis-je choisir la couleur ?",
+        "a": "Oui. Sur commande, depuis la palette de l’atelier."
+      },
+      {
+        "q": "Où livrez-vous ?",
+        "a": "Émirats, France, Allemagne, Royaume-Uni. Russie après devis."
+      },
+      {
+        "q": "Entretien ?",
+        "a": "Brosse sèche, pas de machine, pas de trempage."
+      },
+      {
+        "q": "Retours ?",
+        "a": "Les pièces sur commande suivent le délai indiqué au paiement."
+      }
+    ]
+  },
+  "checkout": {
+    "title": "Réserver",
+    "country": "Livrer vers",
+    "success": "L’atelier a la commande. Un mot de confection suivra par e-mail.",
+    "cancel": "La réservation n’a pas abouti.",
+    "unavailable": "Le paiement en ligne se connecte. Écrivez à atelier@dilagok.com."
+  },
+  "admin": {
+    "title": "Publier",
+    "caption": "Légende",
+    "platforms": "Plateformes",
+    "send": "Publier partout",
+    "needKey": "Définir AYRSHARE_API_KEY pour envoyer."
+  },
+  "footer": {
+    "rights": "Atelier en Turquie."
+  }
+}
