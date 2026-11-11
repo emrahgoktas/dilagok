@@ -23,20 +23,17 @@ export async function generateMetadata({
 
 export default async function HomePage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ play?: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const q = await searchParams;
   const loc = locale as Locale;
   const t = await getTranslations("collection");
 
   return (
     <main>
-      <SignatureHero autoplay={q.play === "1"} />
+      <SignatureHero />
       <section className="mx-auto max-w-6xl px-5 py-24">
         <p className="text-[0.65rem] tracking-[0.35em] uppercase text-gold">Capsule</p>
         <h1 className="mt-4 font-display text-4xl md:text-6xl">{t("title")}</h1>
